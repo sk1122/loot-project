@@ -11,6 +11,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 import Authereum from "authereum";
 import { useEffect, useState } from 'react'
 import { ethers } from 'ethers'
+import toast, { Toaster } from 'react-hot-toast'
 
 const BlockChainIcon = () => {
   return (
@@ -72,6 +73,7 @@ const Home: NextPage = () => {
   const [address, setAddress] = useState()
   const [provider, setProvider] = useState<any>()
   const [signer, setSigner] = useState<any>()
+  const [tokenId, setTokenId] = useState<number>()
 
   const connectETH = async () => {
 		const providerOptions = {
@@ -90,12 +92,18 @@ const Home: NextPage = () => {
 			providerOptions,
 		})
 
+    let toastId = toast.loading('Connecting your Wallet')
+
 		try {
-			const provider = await web3modal.connect()
+      const provider = await web3modal.connect()
       console.log(provider)
 			setProvider(new ethers.providers.Web3Provider(provider))
+      toast.dismiss(toastId)
+      toast.success('Connected to your Wallet')
 			return provider
 		} catch (e) {
+      toast.dismiss(toastId)
+      toast.error('Cannot Connect to your Wallet')
 			console.log(e)
 		}
 	}
@@ -110,11 +118,38 @@ const Home: NextPage = () => {
   }
 
   useEffect(() => {
-    console.log('dsa')
     storeAddress()
   }, [provider])
 
   useEffect(() => console.log(address), [address])
+
+  const mint = () => {
+    let toastId = toast.loading('Minting NFT')
+    try {
+      console.log(tokenId, signer, address, provider)
+      if(!signer || !address || !provider) {
+        toast.dismiss(toastId)
+        toast.error('Connect your wallet')
+        return
+      }
+      if(!tokenId) {
+        toast.dismiss(toastId)
+        toast.error('Enter a Token Id')
+        return
+      }
+
+      // Contract Code Starts
+
+      // Contract Code Ends
+
+      toast.dismiss(toastId)
+      toast.success('Successfully minted NFT')
+    } catch (e) {
+      toast.dismiss(toastId)
+      toast.error('Cannot Mint NFT')
+    }
+      
+  }
 
   return (
     <div style={{ backgroundImage: `url('/bg.webp')`, backgroundSize: 'cover' }} className="flex min-h-screen flex-col items-center justify-center text-white">
@@ -143,8 +178,9 @@ const Home: NextPage = () => {
             }
           </div>
           <div className="w-full h-full flex flex-col justify-center items-center space-y-10">
-            <div>
-              <button className='text-3xl p-5 bg-gray-500 border-4 border-white hover:text-blue-900 duration-200 text-white'>MINT FROM CONTRACT</button>
+            <div className='flex flex-col justify-center items-center space-y-2'>
+              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter a Number' className='w-full p-2 text-black' required />
+              <button onClick={() => mint()} className='text-3xl p-5 bg-gray-500 border-4 border-white hover:text-blue-900 duration-200 text-white'>MINT FROM CONTRACT</button>
             </div>
             <div className="w-1/2 flex justify-center items-center space-x-5">
               {Cards.map(card => {
@@ -401,6 +437,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </main>
+      <Toaster />
     </div>
   )
 }

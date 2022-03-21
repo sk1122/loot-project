@@ -117,13 +117,13 @@ const Home: NextPage = () => {
   useEffect(() => console.log(address), [address])
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center text-white">
+    <div style={{ backgroundImage: `url('/bg.webp')`, backgroundSize: 'cover' }} className="flex min-h-screen flex-col items-center justify-center text-white">
       <Head>
         <title>Loot Travel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center bg-gray-700">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <div className="w-full min-h-screen flex flex-col justify-start items-center px-16 py-16 space-y-20">
           <div className="w-full h-1/3 flex justify-between items-center">
             <div className="flex flex-col justify-center items-center text-center">
@@ -144,7 +144,7 @@ const Home: NextPage = () => {
           </div>
           <div className="w-full h-full flex flex-col justify-center items-center space-y-10">
             <div>
-              <button className='text-3xl p-5 bg-gray-500 text-black border-4 border-black hover:text-blue-900 duration-200'>MINT FROM CONTRACT</button>
+              <button className='text-3xl p-5 bg-gray-500 border-4 border-white hover:text-blue-900 duration-200 text-white'>MINT FROM CONTRACT</button>
             </div>
             <div className="w-1/2 flex justify-center items-center space-x-5">
               {Cards.map(card => {
@@ -166,7 +166,7 @@ const Home: NextPage = () => {
         </div>
       </main>
       
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center bg-gray-700">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
       <div className="w-full p-2 mx-auto">
         <Disclosure>
           {({ open }) => (
@@ -386,7 +386,7 @@ const Home: NextPage = () => {
       </div>
       </main>
       
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center bg-gray-700 py-20">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center py-20">
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-full flex flex-col justify-center items-center text-center space-y-8">
             <div>

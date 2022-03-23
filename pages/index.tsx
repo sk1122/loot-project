@@ -162,13 +162,12 @@ const Home: NextPage = () => {
         <div className="w-full min-h-screen flex flex-col justify-start items-center px-16 py-16 space-y-20">
           <div className="w-full h-1/3 flex justify-between items-center">
             <div className="flex flex-col justify-center items-center text-center">
-              <h1 className='text-5xl'>Loot Travel</h1>
-              <h3 className='text-xl'>(for LootVerse)</h3>
+              <h1 className='text-3xl md:text-5xl'>Loot Travel</h1>
+              <h3 className='text-lg md:text-xl'>(for LootVerse)</h3>
             </div>
             {!address && 
-              <button onClick={() => connectETH()} className='flex flex-col justify-center items-center text-center px-8 py-5 bg-gray-500 rounded-full border-2 border-white'>
+              <button onClick={() => connectETH()} className='flex flex-col justify-center items-center text-center px-4 py-2 md:px-8 md:py-5 bg-gray-500 rounded-full border-2 border-white'>
                 <p className='text-2xl'>Connect</p>
-                <p className='text-md'>(MINT FROM WEBSITE)</p>
               </button>
             }
             {address && 

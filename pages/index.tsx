@@ -158,7 +158,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className="flex w-full flex-1 flex-col items-center justify-center md:px-20 text-center">
         <div className="w-full min-h-screen flex flex-col justify-start items-center px-16 py-16 space-y-20">
           <div className="w-full h-1/3 flex justify-between items-center">
             <div className="flex flex-col justify-center items-center text-center">
@@ -182,9 +182,9 @@ const Home: NextPage = () => {
               <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter a Number' className='w-full p-2 text-black' required />
               <button onClick={() => mint()} className='text-3xl p-5 bg-gray-500 border-4 border-white hover:text-blue-900 duration-200 text-white'>MINT FROM CONTRACT</button>
             </div>
-            <div className="w-1/2 flex justify-center items-center space-x-5">
+            <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-5">
               {Cards.map(card => {
-                return <a href={card.link} className="w-36 h-64 bg-gray-400 flex justify-start py-10 items-center flex-col space-y-2">
+                return <a href={card.link} className="w-full h-full md:w-36 md:h-64 bg-gray-400 flex justify-start py-10 items-center flex-col space-y-2">
                   <card.icon className='w-20 h-20' />
                   <h1 className='text-xl font-bold'>{card.text}</h1>
                 </a>

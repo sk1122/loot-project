@@ -12,6 +12,7 @@ import Authereum from "authereum";
 import { useEffect, useState } from 'react'
 import { ethers } from 'ethers'
 import toast, { Toaster } from 'react-hot-toast'
+import abi from '../abi.json'
 
 const BlockChainIcon = () => {
   return (
@@ -75,6 +76,8 @@ const Home: NextPage = () => {
   const [signer, setSigner] = useState<any>()
   const [tokenId, setTokenId] = useState<number>()
 
+  const CONTRACT_ADDRESS = "0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6";
+
   const connectETH = async () => {
 		const providerOptions = {
 			walletconnect: {
@@ -123,7 +126,7 @@ const Home: NextPage = () => {
 
   useEffect(() => console.log(address), [address])
 
-  const mint = () => {
+  const mint = async() => {
     let toastId = toast.loading('Minting NFT')
     try {
       console.log(tokenId, signer, address, provider)
@@ -139,6 +142,16 @@ const Home: NextPage = () => {
       }
 
       // Contract Code Starts
+        
+      try {
+        console.log("minting..");
+        const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+        let tx1 = await contract.claim(tokenId, {value: ethers.utils.parseEther("0")});
+        await tx1.wait();
+        console.log("minted");
+      } catch (err) {
+        console.log(err);
+      }
 
       // Contract Code Ends
 
@@ -178,8 +191,8 @@ const Home: NextPage = () => {
           </div>
           <div className="w-full h-full flex flex-col justify-center items-center space-y-10">
             <div className='flex flex-col justify-center items-center space-y-2'>
-              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter a Number' className='w-full p-2 text-black' required />
-              <button onClick={() => mint()} className='text-3xl p-5 bg-gray-500 border-4 border-white hover:text-blue-900 duration-200 text-white'>MINT FROM CONTRACT</button>
+              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter tokenId' className='w-full p-2 text-black' required />
+              <button onClick={() => mint()} className='text-3xl p-5 bg-gray-500 border-4 border-white hover:text-blue-900 duration-200 text-white'>MINT</button>
             </div>
             <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-5">
               {Cards.map(card => {

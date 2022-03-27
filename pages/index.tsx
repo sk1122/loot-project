@@ -159,7 +159,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center md:px-20 text-center">
-        <div className="w-full min-h-screen flex flex-col justify-start items-center px-16 py-16 space-y-20">
+        <div className="w-full min-h-screen flex flex-col justify-start items-center px-5 md:px-16 py-16 space-y-20">
           <div className="w-full h-1/3 flex justify-between items-center">
             <div className="flex flex-col justify-center items-center text-center">
               <h1 className='text-3xl md:text-5xl'>Loot Travel</h1>
@@ -192,7 +192,7 @@ const Home: NextPage = () => {
             <div className='border-t-2 border-t-orange-300'>
               <h1 className='text-xl'>9999 randomized text only NFTs. Society for Loot. Art for everyone. All on-chain.</h1>
             </div>
-            <div className="w-1/2 flex justify-between items-center pt-10">
+            <div className="w-8/12 md:w-1/2 flex justify-between items-center pt-10">
               <Twitter />
               <OpenSea />
               <Discord />
@@ -201,7 +201,7 @@ const Home: NextPage = () => {
         </div>
       </main>
       
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-5 md:px-20 text-center">
       <div className="w-full p-2 mx-auto">
         <Disclosure>
           {({ open }) => (
@@ -428,7 +428,7 @@ const Home: NextPage = () => {
               <h1 className='text-5xl'>Loot Travel</h1>
               <h3 className='text-xl'>(for LootVerse)</h3>
             </div>
-            <div className="w-1/2 flex justify-between items-center">
+            <div className="w-11/12 md:w-1/2 flex justify-between items-center">
               <Twitter />
               <OpenSea />
               <Discord />

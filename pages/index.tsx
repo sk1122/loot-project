@@ -139,14 +139,16 @@ const Home: NextPage = () => {
         toast.error('Enter a Token Id')
         return
       }
-
+      
       // Contract Code Starts
       try {
         const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
         let tx1 = await contract.claim(tokenId, {value: ethers.utils.parseEther("0")});
         await tx1.wait();
         toast.dismiss(toastId)
-        toast.success(`Successfully Minted NFT - https://testnets.opensea.io/assets/mumbai/0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6/${tokenId.toString()}`, {
+        toast.custom(<div className='bg-white text-gray-700 font-inter duration-300 p-3 rounded-xl'>
+          Successfully Minted NFT - <a href="https://testnets.opensea.io/assets/mumbai/0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6/${tokenId.toString()}">Opensea</a>
+        </div>, {
           duration: 10000
         })
       } catch (err) {

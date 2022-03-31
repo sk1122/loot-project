@@ -146,7 +146,9 @@ const Home: NextPage = () => {
         let tx1 = await contract.claim(tokenId, {value: ethers.utils.parseEther("0")});
         await tx1.wait();
         toast.dismiss(toastId)
-        toast.success(`Successfully Minted NFT - https://testnets.opensea.io/assets/mumbai/0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6/${tokenId.toString()}`)
+        toast.success(`Successfully Minted NFT - https://testnets.opensea.io/assets/mumbai/0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6/${tokenId.toString()}`, {
+          duration: 10000
+        })
       } catch (err) {
         console.log(err)
         toast.dismiss(toastId)

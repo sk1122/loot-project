@@ -99,7 +99,6 @@ const Home: NextPage = () => {
 
 		try {
       const provider = await web3modal.connect()
-      console.log(provider)
 			setProvider(new ethers.providers.Web3Provider(provider))
       toast.dismiss(toastId)
       toast.success('Connected to your Wallet')
@@ -142,25 +141,18 @@ const Home: NextPage = () => {
       }
 
       // Contract Code Starts
-        
       try {
-        console.log("minting..");
         const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
         let tx1 = await contract.claim(tokenId, {value: ethers.utils.parseEther("0")});
         await tx1.wait();
-        console.log("minted");
+        toast.dismiss(toastId)
+        toast.success(`Successfully Minted NFT - https://testnets.opensea.io/assets/mumbai/0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6/${tokenId.toString()}`)
       } catch (err) {
-        console.log(err);
+        console.log(err)
+        toast.dismiss(toastId)
+        toast.error("Can't mint your NFT")
       }
-
-      // Contract Code Ends
-
-      toast.dismiss(toastId)
-      toast.success('Successfully minted NFT')
-    } catch (e) {
-      toast.dismiss(toastId)
-      toast.error('Cannot Mint NFT')
-    }
+    } catch (e) {}
       
   }
 

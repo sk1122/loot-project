@@ -92,14 +92,21 @@ const Home: NextPage = () => {
 		}
 
 		const web3modal = new Web3Modal({
-			providerOptions,
+      providerOptions,
 		})
 
     let toastId = toast.loading('Connecting your Wallet')
 
 		try {
       const provider = await web3modal.connect()
-			setProvider(new ethers.providers.Web3Provider(provider))
+      const ethProvider = new ethers.providers.Web3Provider(provider)
+			setProvider(ethProvider)
+
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: '0x13881' }],
+      });
+
       toast.dismiss(toastId)
       toast.success('Connected to your Wallet')
 			return provider
@@ -147,7 +154,7 @@ const Home: NextPage = () => {
         await tx1.wait();
         toast.dismiss(toastId)
         toast.custom(<div className='bg-white text-gray-700 font-inter duration-300 p-3 rounded-xl'>
-          Successfully Minted NFT - <a href="https://testnets.opensea.io/assets/mumbai/0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6/{tokenId.toString()}">Opensea</a>
+          Successfully Minted NFT - <a className='text-blue-700 text-underline' href="https://testnets.opensea.io/assets/mumbai/0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6/{tokenId.toString()}">Opensea Link</a>
         </div>, {
           duration: 10000
         })

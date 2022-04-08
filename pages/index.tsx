@@ -227,7 +227,14 @@ const Home: NextPage = () => {
       <main className="flex w-full flex-1 flex-col items-start justify-center px-5 md:px-20 font-poppins space-y-5">
         <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3">
           <h1 className='text-3xl font-bold text-[#918378] mb-4'>ABOUT LOOT TRAVEL</h1>
-          <p>Adventure is the spirit of Lootverse, and what’s adventure without exploration! Exploration requires means of travel and this is exactly what Loot Travel brings to the Lootverse. In line with the vision of the original Loot Project, Loot Travel is open to imagination, giving room for art and creativity to flow in – our main reason to make this NFT text-only, so you can visualize it the way you want and build on what we did. Artists can Imagine, visualize, create and manifest the Loot Travel whichever way they want! Lootverse is a world where imagination flies wild and adventure rides high – and Loot Travel is no less! All the modes of travel a.k.a we </p>
+          <p>Like you, we love the story of the Lootverse. Adventure is the spirit of Lootverse, and what’s adventure without exploration! Exploration requires means of travel and this is exactly what Loot Travel brings to the Lootverse. 
+
+Lootverse is a world where imagination flies wild and adventure rides high – and Loot Travel is no less! All the modes of travel a.k.a we have created are inspired by mythology, movies and folklore – opening endless possibilities for exploration and storytelling in the realms of the Lootverse. 
+ 
+In line with the vision of the original Loot Project, Loot Travel is open to imagination, giving room for art and creativity to flow in – our main reason to make this NFT text-only is so you can visualize it the way you want and build on what we did. 
+
+Artists can Imagine, visualize, create and manifest the Loot Travel whichever way they want!
+</p>
         </div>
         <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
           <div className="w-full md:w-1/2">

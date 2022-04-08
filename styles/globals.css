@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+	.placeholder::placeholder{
+		font-size: 1.5rem;
+		color: white;
+		font-family: 'Poppins';
+	}
+
+	.placeholder {
+		font-size: 1.5rem;
+		font-family: 'Poppins';
+	}
+}

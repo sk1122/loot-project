@@ -24,18 +24,18 @@ const INFURA_ID = '460f40a260564ac4a4f4b3fffb032dad'
 
 const Cards = [
   {
-    icon: CogIcon,
+    icon: '/images/car.png',
     text: `
     Transportation for Loot Adventures.`,
     link: ''
   },
   {
-    icon: GlobeIcon,
+    icon: '/images/art.png',
     text: `Art for everyone.`,
     link: ''
   },
   {
-    icon: BlockChainIcon,
+    icon: '/images/link.png',
     text: `All on-chain.`,
     link: ''
   }
@@ -69,6 +69,7 @@ const Discord = () => {
     </svg>
   )
 }
+
 
 const Home: NextPage = () => {
   const [address, setAddress] = useState()
@@ -168,21 +169,25 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div style={{ backgroundImage: `url('/bg.webp')`, backgroundSize: 'cover' }} className="flex min-h-screen flex-col items-center justify-center text-white">
+    <div style={{ backgroundImage: `linear-gradient(to bottom, rgb(238,238,238, 0.2), rgb(0,0,0,0.2), rgb(0,0,0,0.5)),url('/images/bg.png')`, backgroundColor: 'gray', backgroundSize: 'cover' }} className="flex min-h-screen flex-col items-center justify-center text-white">
       <Head>
         <title>Loot Travel</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" /> 
+
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center md:px-20 text-center">
         <div className="w-full min-h-screen flex flex-col justify-start items-center px-5 md:px-16 py-16 space-y-20">
           <div className="w-full h-1/3 flex justify-between items-center">
-            <div className="flex flex-col justify-center items-center text-center">
-              <h1 className='text-3xl md:text-5xl'>Loot Travel</h1>
-              <h3 className='text-lg md:text-xl'>(for LootVerse)</h3>
+            <div className="flex justify-center items-center text-center space-x-3">
+              <img src="/images/logo.png" className='w-10 h-10' alt="" />
+              <h1 className='font-poppins font-semibold text-3xl md:text-4xl'>Loot Travel</h1>
             </div>
             {!address && 
-              <button onClick={() => connectETH()} className='flex flex-col justify-center items-center text-center px-4 py-2 md:px-8 md:py-5 bg-gray-500 rounded-full border-2 border-white'>
+              <button onClick={() => connectETH()} className='flex flex-col justify-center items-center text-center px-4 py-1 md:px-8 md:py-2 bg-black/40 rounded-full'>
                 <p className='text-2xl'>Connect</p>
               </button>
             }
@@ -192,257 +197,241 @@ const Home: NextPage = () => {
               </button>
             }
           </div>
-          <div className="w-full h-full flex flex-col justify-center items-center space-y-10">
-            <div className='flex flex-col justify-center items-center space-y-2'>
-              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter tokenId' className='w-full p-2 text-black' required />
-              <button onClick={() => mint()} className='text-3xl p-5 bg-gray-500 border-4 border-white hover:text-blue-900 duration-200 text-white'>MINT</button>
+          <div className="w-11/12 md:w-1/2 h-full flex flex-col justify-center items-center space-y-10">
+            <h1 className='font-poppins font-bold text-5xl'>Welcome to the future of Art</h1>
+            <div className='w-full flex flex-col justify-center items-center space-y-3'>
+              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter tokenId' className='w-full bg-black/20 p-5 placeholder rounded-full text-center font-5xl text-white' required />
+              <p className='text-center text-white font-poppins pb-5'>(A random number between 1-9999)</p>
+              <button onClick={() => mint()} className='font-poppins text-xl px-10 py-2 bg-white hover:text-blue-900 duration-200 text-black rounded-full'>MINT</button>
             </div>
-            <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-5">
-              {Cards.map(card => {
-                return <a href={card.link} className="w-full h-full md:w-36 md:h-64 bg-gray-400 flex justify-start py-10 items-center flex-col space-y-2">
-                  <card.icon className='w-20 h-20' />
-                  <h1 className='text-xl font-bold'>{card.text}</h1>
-                </a>
-              })}
-            </div>
-            <div className='border-t-2 border-t-orange-300'>
-              <h1 className='text-xl'>9999 randomized text only NFTs. Society for Loot. Art for everyone. All on-chain.</h1>
-            </div>
-            <div className="w-8/12 md:w-1/2 flex justify-between items-center pt-10">
-              <Twitter />
-              <OpenSea />
-              <Discord />
-            </div>
-          </div>
         </div>
+        <div className="w-11/12 flex flex-col md:flex-row space-y-5 md:space-y-0 justify-center md:justify-between items-center">
+          {Cards.map(card => {
+            return <a href={card.link} className="w-full h-full flex justify-start items-center flex-col space-y-5">
+              <img src={card.icon} className='w-fit h-fit' />
+              <h1 className='w-1/2 md:w-full text-xl text-center font-bold'>{card.text}</h1>
+            </a>
+          })}
+        </div>
+        <div>
+          <h1 className='font-poppins text-3xl'>9999 randomized text only NFTs. Society for Loot. <br /> Art for everyone. All on-chain.</h1>
+        </div>
+        <div className="w-8/12 md:w-1/2 flex justify-between items-center">
+          <Twitter />
+          <OpenSea />
+          <Discord />
+        </div>
+      </div>
       </main>
       
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-5 md:px-20 text-center">
-      <div className="w-full p-2 mx-auto">
-        <Disclosure>
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex p-5 bg-gray-500 items-center border-b-2 border-b-white justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
-                <span className='text-3xl'>ROADMAP</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'transform rotate-180' : ''
-                  } w-5 h-5 text-white`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-xl text-white">
-                Loot Travel aims to closely work with the Loot community at large to
-                develop collaborations and integrations with other projects.
-                Loot travel NFTs can be owned exclusively by Loot owners (of sLoot,
-                mLoot, and other Loot community projects).
-
-                We’re also active in the Divine DAO working on canon, lore and
-                history of the Lootverse.
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure>
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex p-5 bg-gray-500 items-center border-b-2 border-b-white justify-between w-full px-4 py-2 text-sm font-medium text-left">
-                <span className='text-3xl'>ABOUT LOOT TRAVEL</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'transform rotate-180' : ''
-                  } w-5 h-5 text-white`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-xl text-white">
-                Adventure is the spirit of Lootverse, and what’s adventure without
-                exploration! Exploration requires means of travel and this is exactly
-                what Loot Travel brings to the Lootverse.
-                In line with the vision of the original Loot Project, Loot Travel is open
-                to imagination, giving room for art and creativity to flow in – our main
-                reason to make this NFT text-only, so you can visualize it the way you
-                want and build on what we did.
-                Artists can Imagine, visualize, create and manifest the Loot Travel
-                whichever way they want!
-                Lootverse is a world where imagination flies wild and adventure rides
-                high – and Loot Travel is no less! All the modes of travel a.k.a we
-                have created are inspired by mythology, movies and folklore –
-                opening endless possibilities for exploration and storytelling in the
-                realms of the Lootverse.
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="div" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex bg-gray-500 items-center border-b-2 border-b-white p-5 justify-between w-full px-4 py-2 text-sm font-medium text-left">
-                <span className='text-3xl'>ELEMENTS</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'transform rotate-180' : ''
-                  } w-5 h-5 text-white`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-xl text-white">
-                Everything is possible in Loot Travel - From space to flight to
-                terrestrial to water to underground movement.
-                Each NFT consists of the following components:
-                <img src="/nft.svg" className='w-72' alt="NFT" />
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="div" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex bg-gray-500 items-center border-b-2 border-b-white p-5 justify-between w-full px-4 py-2 text-sm font-medium text-left">
-                <span className='text-3xl'>COMPONENTS</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'transform rotate-180' : ''
-                  } w-5 h-5 text-white`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 text-left pt-4 pb-2 text-xl text-white">
-                <b className='text-3xl'>Vehicle #</b>
-                <br />
-                A unique serial number for each NFT.
-                Vehicles (Text in bracket is for internal understanding only)
-                <div className='px-10'>
-                  <br />
-                  <ol style={{ listStyleType: 'number' }}>
-                    <li>Millennium Falcon (space travel)</li>
-                    <li>Sling Ring (dimensional gateway)</li>
-                    <li>Nimbus 2000 Broomstick (Fly)</li>
-                    <li>Pegasus (Flying Horse)</li>
-                    <li>Flying Carpet (Fly)</li>
-                    <li>Swan Boat (water way)</li>
-                    <li>2-headed Sea Snake (underwater)</li>
-                    <li>Sail Fish (underwater)</li>
-                    <li>Four-horse chariot (Ground)</li>
-                    <li>Cheetah (Ground)</li>
-                    <li>Elephant (Ground)</li>
-                    <li>Giant Ant (underground)</li>
-                  </ol>
-                </div>
-                <br />
-                
-                <b className='text-3xl'>Rarity</b>
-                <ol className='px-10' style={{ listStyleType: 'number' }}>
-                  <br />
-                  <li>Common</li>
-                  <li>Epic</li>
-                  <li>Legendary</li>
-                  <li>Mythic</li>
-                </ol>
-                <br />
-
-                <b className='text-3xl'>Speed</b>
-                <ol className='px-10' style={{ listStyleType: 'number' }}>
-                  <br />
-                  <li>Blink of an eye</li>
-                  <li>Super Fast</li>
-                  <li>Fast</li>
-                  <li>Medium</li>
-                  <li>Slow</li>
-                  <li>Slug</li>
-                </ol>
-                <br />
-                
-                <b className='text-3xl'>Special Powers</b>
-                <ol className='px-10' style={{ listStyleType: 'number' }}>
-                  <br />
-                  <li>Spit-fire</li>
-                  <li>Shape-shifting</li>
-                  <li>Indestructible</li>
-                  <li>Cannon-shootin</li>g
-                  <li>Shielding</li>
-                  <li>Disappearance</li>
-                  <li>Self-Healing</li>
-                  <li>Camouflage</li>
-                </ol>
-                <br />
-
-                <b className='text-3xl'>Secret Metal Ingredient</b>
-                <ol className='px-10' style={{ listStyleType: 'number' }}>
-                  <br />
-                  <li>Neodymium</li>
-                  <li>Cerium</li>
-                  <li>Scandium</li>
-                  <li>Europium</li>
-                  <li>Holmium</li>
-                  <li>Erbium</li>
-                  <li>Lutetium</li>
-                </ol>
-                <br />
-                
-                <b className='text-3xl'>Color</b>
-                <ol className='px-10' style={{ listStyleType: 'number' }}>
-                  <br />
-                  <li>Gold</li>
-                  <li>Silver</li>
-                  <li>Fire</li>
-                  <li>Water</li>
-                  <li>Leaf</li>
-                  <li>Cloud</li>
-                </ol>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="div" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex bg-gray-500 items-center border-b-2 border-b-white p-5 justify-between w-full px-4 py-2 text-sm font-medium text-left">
-                <span className='text-3xl'>PRICING</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'transform rotate-180' : ''
-                  } w-5 h-5 text-white`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-xl text-white">
-                <li>Each NFT will be 0.015ETH.</li>
-                <li>10 mint maximum per wallet.</li>
-                <li>By launching on Polygon (L2), gas will be mere pennies worth of
-                MATIC.</li>
-                <li>There will only ever be 9999 original NFTs which will be sold on
-                our website. Further sale will happen on opensea, etc</li>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="div" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex bg-gray-500 items-center border-b-2 border-b-white p-5 justify-between w-full px-4 py-2 text-sm font-medium text-left">
-                <span className='text-3xl'>FAQs</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'transform rotate-180' : ''
-                  } w-5 h-5 text-white`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-xl text-white">
-                <li>
-                  <b className='text-3xl'>Why are Loot travel NFTs not designed?</b>
-                  <p>Like Loot itself, we leave the canvas open for creativity. We would
-                  love for the community and artists across the globe to interpret the
-                  Lootverse and Loot vehicles as they like and create amazing art.</p>
-                </li>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-      </div>
+      <main className="flex w-full flex-1 flex-col items-start justify-center px-5 md:px-20 font-poppins space-y-5">
+        <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3">
+          <h1 className='text-3xl font-bold text-[#918378] mb-4'>ABOUT LOOT TRAVEL</h1>
+          <p>Adventure is the spirit of Lootverse, and what’s adventure without exploration! Exploration requires means of travel and this is exactly what Loot Travel brings to the Lootverse. In line with the vision of the original Loot Project, Loot Travel is open to imagination, giving room for art and creativity to flow in – our main reason to make this NFT text-only, so you can visualize it the way you want and build on what we did. Artists can Imagine, visualize, create and manifest the Loot Travel whichever way they want! Lootverse is a world where imagination flies wild and adventure rides high – and Loot Travel is no less! All the modes of travel a.k.a we </p>
+        </div>
+        <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
+          <div className="w-full md:w-1/2">
+            <h1 className='text-3xl font-bold text-[#517875] mb-4'>ELEMENTS</h1>
+            <p className='text-black'>Everything is possible in Loot Travel - From space to flight to terrestrial to water to underground movement. Each NFT consists of the following components:</p>
+          </div>
+          <img src="/nft.svg" alt="" className='w-72 p-5 border border-5 border-black rounded-xl' />
+        </div>
+        <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
+          <div className="w-full md:w-1/2">
+            <h1 className='text-3xl font-bold text-[#918378] mb-4'>COMPONENTS</h1>
+            <div className="w-full">
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex p-5 items-center justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
+                      <span className='text-lg'>Vehicles #</span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-white`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
+                      A unique serial number for each NFT.
+                      Vehicles (Text in bracket is for internal understanding only)
+                      <div className='px-10'>
+                        <br />
+                        <ol style={{ listStyleType: 'number' }}>
+                          <li>Millennium Falcon (space travel)</li>
+                          <li>Sling Ring (dimensional gateway)</li>
+                          <li>Nimbus 2000 Broomstick (Fly)</li>
+                          <li>Pegasus (Flying Horse)</li>
+                          <li>Flying Carpet (Fly)</li>
+                          <li>Swan Boat (water way)</li>
+                          <li>2-headed Sea Snake (underwater)</li>
+                          <li>Sail Fish (underwater)</li>
+                          <li>Four-horse chariot (Ground)</li>
+                          <li>Cheetah (Ground)</li>
+                          <li>Elephant (Ground)</li>
+                          <li>Giant Ant (underground)</li>
+                        </ol>
+                      </div>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex p-5 items-center justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
+                      <span className='text-lg'>Rarity #</span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-white`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
+                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                        <li>Common</li>
+                        <li>Epic</li>
+                        <li>Legendary</li>
+                        <li>Mythic</li>
+                      </ol>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex p-5 items-center justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
+                      <span className='text-lg'>Speed #</span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-white`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
+                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                        <li>Blink of an eye</li>
+                        <li>Super Fast</li>
+                        <li>Fast</li>
+                        <li>Medium</li>
+                        <li>Slow</li>
+                        <li>Slug</li>
+                      </ol>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex p-5 items-center justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
+                      <span className='text-lg'>Special Powers #</span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-white`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
+                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                        <li>Spit-fire</li>
+                        <li>Shape-shifting</li>
+                        <li>Indestructible</li>
+                        <li>Cannon-shooting</li>
+                        <li>Shielding</li>
+                        <li>Disappearance</li>
+                        <li>Self-Healing</li>
+                        <li>Camouflage</li>
+                      </ol>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex p-5 items-center justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
+                      <span className='text-lg'>Secret Metal Ingredient #</span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-white`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
+                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                        <li>Neodymium</li>
+                        <li>Cerium</li>
+                        <li>Scandium</li>
+                        <li>Europium</li>
+                        <li>Holmium</li>
+                        <li>Erbium</li>
+                        <li>Lutetium</li>
+                      </ol>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex p-5 items-center justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
+                      <span className='text-lg'>Color #</span>
+                      <ChevronUpIcon
+                        className={`${
+                          open ? 'transform rotate-180' : ''
+                        } w-5 h-5 text-white`}
+                      />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
+                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                        <li>Gold</li>
+                        <li>Silver</li>
+                        <li>Fire</li>
+                        <li>Water</li>
+                        <li>Leaf</li>
+                        <li>Cloud</li>
+                      </ol>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            </div>
+          </div>
+          <img src="/images/car2.png" alt="" className='w-72 p-5 border border-5 border-black rounded-xl' />
+        </div>
+        <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
+          <div className="w-full md:w-1/2 space-y-5">
+            <h1 className='text-3xl font-bold text-[#517875]'>PRICING</h1>
+            <ul className='text-black list-disc px-10 space-y-3'>
+              <li>Each NFT will be 0.015ETH.</li>
+              <li>10 mint maximum per wallet.</li>
+              <li>By launching on Polygon (L2), gas will be mere pennies worth of MATIC.</li>
+              <li>There will only ever be 9999 original NFTs which will be sold on our website. Further sale will happen on opensea, etc</li>
+            </ul>
+          </div>
+          <img src="/images/shopping.png" alt="" className='w-72 p-5 rounded-xl' />
+        </div>
+        <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3">
+          <h1 className='text-3xl font-bold text-[#918378]'>ROADMAP</h1>
+          <p>Loot Travel aims to closely work with the Loot community at large to develop collaborations and integrations with other projects. Loot travel NFTs can be owned exclusively by Loot owners (of sLoot, mLoot, and other Loot community projects). We’re also active in the Divine DAO working on canon, lore and history of the Lootverse.</p>
+        </div>
+        <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3">
+            <h1 className='text-3xl font-bold text-[#517875]'>FAQ's</h1>
+            <h1 className='font-bold text-black'>Why are Loot travel NFTs not designed?</h1>
+            <p className='text-black'>
+              Like Loot itself, we leave the canvas open for creativity. We would love for the community and artists across the globe to interpret the Lootverse and Loot vehicles as they like and create amazing art.
+            </p>
+        </div>
       </main>
       
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center py-20">
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-full flex flex-col justify-center items-center text-center space-y-8">
-            <div>
-              <h1 className='text-5xl'>Loot Travel</h1>
-              <h3 className='text-xl'>(for LootVerse)</h3>
+            <div className='flex flex-col justify-center items-center space-y-3'>
+              <img src="/images/logo.png" alt="" className='w-fit' />
+              <h1 className='text-5xl font-poppins font-bold'>Loot Travel</h1>
+              <p className='tracking-[.5em] font-poppins'>FOR LOOTVERSE</p>
             </div>
             <div className="w-11/12 md:w-1/2 flex justify-between items-center">
               <Twitter />

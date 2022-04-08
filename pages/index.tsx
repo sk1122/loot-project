@@ -77,7 +77,7 @@ const Home: NextPage = () => {
   const [signer, setSigner] = useState<any>()
   const [tokenId, setTokenId] = useState<number>()
 
-  const CONTRACT_ADDRESS = "0x831187cd4a0ebe487bc0ed5c299e0d2a393ee1e6";
+  const CONTRACT_ADDRESS = "0x84B358d1DCEdeC62750dBB05EA4Da2E6e9eDc18c";
 
   const connectETH = async () => {
 		const providerOptions = {
@@ -151,7 +151,7 @@ const Home: NextPage = () => {
       // Contract Code Starts
       try {
         const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
-        let tx1 = await contract.claim(tokenId, {value: ethers.utils.parseEther("0")});
+        let tx1 = await contract.mint(tokenId, {value: ethers.utils.parseEther("0")});
         await tx1.wait();
         toast.dismiss(toastId)
         toast.custom(<div className='bg-white text-gray-700 font-inter duration-300 p-3 rounded-xl'>

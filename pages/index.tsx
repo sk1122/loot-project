@@ -227,7 +227,14 @@ const Home: NextPage = () => {
       <main className="flex w-full flex-1 flex-col items-start justify-center px-5 md:px-20 font-poppins space-y-5">
         <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3">
           <h1 className='text-3xl font-bold text-[#918378] mb-4'>ABOUT LOOT TRAVEL</h1>
-          <p>Adventure is the spirit of Lootverse, and what’s adventure without exploration! Exploration requires means of travel and this is exactly what Loot Travel brings to the Lootverse. In line with the vision of the original Loot Project, Loot Travel is open to imagination, giving room for art and creativity to flow in – our main reason to make this NFT text-only, so you can visualize it the way you want and build on what we did. Artists can Imagine, visualize, create and manifest the Loot Travel whichever way they want! Lootverse is a world where imagination flies wild and adventure rides high – and Loot Travel is no less! All the modes of travel a.k.a we </p>
+          <p>Like you, we love the story of the Lootverse. Adventure is the spirit of Lootverse, and what’s adventure without exploration! Exploration requires means of travel and this is exactly what Loot Travel brings to the Lootverse. 
+
+Lootverse is a world where imagination flies wild and adventure rides high – and Loot Travel is no less! All the modes of travel a.k.a we have created are inspired by mythology, movies and folklore – opening endless possibilities for exploration and storytelling in the realms of the Lootverse. 
+ 
+In line with the vision of the original Loot Project, Loot Travel is open to imagination, giving room for art and creativity to flow in – our main reason to make this NFT text-only is so you can visualize it the way you want and build on what we did. 
+
+Artists can Imagine, visualize, create and manifest the Loot Travel whichever way they want!
+</p>
         </div>
         <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
           <div className="w-full md:w-1/2">
@@ -253,22 +260,22 @@ const Home: NextPage = () => {
                     </Disclosure.Button>
                     <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
                       A unique serial number for each NFT.
-                      Vehicles (Text in bracket is for internal understanding only)
+                      Vehicles
                       <div className='px-10'>
                         <br />
                         <ol style={{ listStyleType: 'number' }}>
-                          <li>Millennium Falcon (space travel)</li>
-                          <li>Sling Ring (dimensional gateway)</li>
-                          <li>Nimbus 2000 Broomstick (Fly)</li>
-                          <li>Pegasus (Flying Horse)</li>
-                          <li>Flying Carpet (Fly)</li>
-                          <li>Swan Boat (water way)</li>
-                          <li>2-headed Sea Snake (underwater)</li>
-                          <li>Sail Fish (underwater)</li>
-                          <li>Four-horse chariot (Ground)</li>
-                          <li>Cheetah (Ground)</li>
-                          <li>Elephant (Ground)</li>
-                          <li>Giant Ant (underground)</li>
+                          <li>Millennium Falcon</li>
+                          <li>Sling Ring</li>
+                          <li>Nimbus 2000 Broomstick</li>
+                          <li>Pegasus</li>
+                          <li>Flying Carpet</li>
+                          <li>Swan Boat</li>
+                          <li>2-headed Sea Snake</li>
+                          <li>Sail Fish</li>
+                          <li>Four-horse chariot</li>
+                          <li>Cheetah</li>
+                          <li>Elephant</li>
+                          <li>Giant Ant</li>
                         </ol>
                       </div>
                     </Disclosure.Panel>
@@ -391,6 +398,20 @@ const Home: NextPage = () => {
                         <li>Water</li>
                         <li>Leaf</li>
                         <li>Cloud</li>
+                        <li>Sky</li>
+                        <li>Desert</li>
+                        <li>Flower Pink</li>
+                        <li>Jet Black</li>
+                        <li>Sapphire</li>
+                        <li>Ocean Blue</li>
+                        <li>Blood Red</li>
+                        <li>Rainbow</li>
+                        <li>Elephant Grey</li>
+                        <li>Crocodile Green</li>
+                        <li>Military Green</li>
+                        <li>Grass Green</li>
+                        <li>Winter White</li>
+                        <li>Earth Brown</li>
                       </ol>
                     </Disclosure.Panel>
                   </>
@@ -404,23 +425,36 @@ const Home: NextPage = () => {
           <div className="w-full md:w-1/2 space-y-5">
             <h1 className='text-3xl font-bold text-[#517875]'>PRICING</h1>
             <ul className='text-black list-disc px-10 space-y-3'>
-              <li>Each NFT will be 0.015ETH.</li>
-              <li>10 mint maximum per wallet.</li>
+              <li>Each NFT will be 30 Matic.</li>
+              <li>Minting is limited to 50 Loot Travel NFTs per wallet.</li>
               <li>By launching on Polygon (L2), gas will be mere pennies worth of MATIC.</li>
               <li>There will only ever be 9999 original NFTs which will be sold on our website. Further sale will happen on opensea, etc</li>
+              <li>Once minted, the NFT token goes live on opensea. Further sales will happen on platforms like opensea.</li>
             </ul>
           </div>
           <img src="/images/shopping.png" alt="" className='w-72 p-5 rounded-xl' />
         </div>
         <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3">
           <h1 className='text-3xl font-bold text-[#918378]'>ROADMAP</h1>
-          <p>Loot Travel aims to closely work with the Loot community at large to develop collaborations and integrations with other projects. Loot travel NFTs can be owned exclusively by Loot owners (of sLoot, mLoot, and other Loot community projects). We’re also active in the Divine DAO working on canon, lore and history of the Lootverse.</p>
+          <p>Loot Travel aims to closely work with the Loot community at large to develop collaborations and integrations with other projects. Loot travel NFTs can be owned exclusively by Loot owners (of sLoot, mLoot, and other Loot community projects).</p>
         </div>
         <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3">
             <h1 className='text-3xl font-bold text-[#517875]'>FAQ's</h1>
-            <h1 className='font-bold text-black'>Why are Loot travel NFTs not designed?</h1>
+            <h1 className='font-bold text-black'>1. How can I buy the Loot Travel NFT?</h1>
             <p className='text-black'>
-              Like Loot itself, we leave the canvas open for creativity. We would love for the community and artists across the globe to interpret the Lootverse and Loot vehicles as they like and create amazing art.
+              Once you connect to the Polygon Mainnet, purchase can be made with $MATIC.
+            </p>
+            <h1 className='font-bold text-black'>2. I only have ETH in my wallet. How can I make the transaction?</h1>
+            <p className='text-black'>
+              We need to turn ETH to MATIC using Polygon bridge: https://wallet.polygon.technology/bridge/ 
+            </p>
+            <h1 className='font-bold text-black'>3. Why did we build this on the Polygon chain?</h1>
+            <p className='text-black'>
+              Well, to avoid the insane Gas fees! Gas fee to buy the Loot Travel token is absolutely minimal (usually $0.01). 
+            </p>
+            <h1 className='font-bold text-black'>4. What is the future of the Loot Travel NFT?</h1>
+            <p className='text-black'>
+            Well, it’s super exciting for one. We see the Lootverse become a very exciting space for all of us and Loot travel would become an exciting part of this world once artists join the bandwagon to imagine, visualize and build the Loot vehicles! We look forward to the graphic versions that would be built on top of what we did!
             </p>
         </div>
       </main>

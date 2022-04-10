@@ -425,7 +425,7 @@ const Home: NextPage = () => {
           <div className="w-full md:w-1/2 space-y-5">
             <h1 className='text-3xl font-bold text-[#517875]'>PRICING</h1>
             <ul className='text-black list-disc px-10 space-y-3 text-justify'>
-              <li>Each NFT will be 30 Matic.</li>
+              <li>Mint price is 30 MATIC per NFT</li>
               <li>Minting is limited to 50 Loot Travel NFTs per wallet.</li>
               <li>By launching on Polygon (L2), gas will be mere pennies worth of MATIC.</li>
               <li>There will only ever be 9999 original NFTs which will be sold on our website. Further sale will happen on opensea, etc</li>

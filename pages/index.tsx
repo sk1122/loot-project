@@ -184,25 +184,25 @@ const Home: NextPage = () => {
           <div className="w-full h-1/3 flex justify-between items-center">
             <div className="flex justify-center items-center text-center space-x-3">
               <img src="/images/logo.png" className='w-10 h-10' alt="" />
-              <h1 className='font-poppins font-semibold text-3xl md:text-4xl'>Loot Travel</h1>
+              <h1 className='font-poppins font-semibold text-xl md:text-4xl'>Loot Travel</h1>
             </div>
             {!address && 
               <button onClick={() => connectETH()} className='flex flex-col justify-center items-center text-center px-4 py-1 md:px-8 md:py-2 bg-black/40 rounded-full'>
-                <p className='text-2xl'>Connect</p>
+                <p className='text-xl md:text-2xl'>Connect</p>
               </button>
             }
             {address && 
               <button className='flex flex-col justify-center items-center text-center px-8 py-5 bg-gray-500 rounded-full border-2 border-white'>
-                <p className='w-20 truncate text-2xl'>{address}</p>
+                <p className='w-20 truncate text-xl md:text-2xl'>{address}</p>
               </button>
             }
           </div>
           <div className="w-11/12 md:w-1/2 h-full flex flex-col justify-center items-center space-y-10">
-            <h1 className='font-poppins font-bold text-5xl'>Welcome to the future of Art</h1>
+            <h1 className='font-poppins font-bold text-3xl md:text-5xl'>Welcome to the future of Art</h1>
             <div className='w-full flex flex-col justify-center items-center space-y-3'>
-              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter tokenId' className='w-full bg-black/20 p-5 placeholder rounded-full text-center font-5xl text-white' required />
+              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter tokenId' className='w-full bg-black/20 p-2 md:p-5 placeholder rounded-full text-center text-3xl md:text-5xl text-white' required />
               <p className='text-center text-white font-poppins pb-5'>(A random number between 1-9999)</p>
-              <button onClick={() => mint()} className='font-poppins text-xl px-10 py-2 bg-white hover:text-blue-900 duration-200 text-black rounded-full'>MINT</button>
+              <button onClick={() => mint()} className='font-poppins text-lg md:text-xl px-10 py-2 bg-white hover:text-blue-900 duration-200 text-black rounded-full'>MINT</button>
             </div>
         </div>
         <div className="w-11/12 flex flex-col md:flex-row space-y-5 md:space-y-0 justify-center md:justify-between items-center">
@@ -214,7 +214,7 @@ const Home: NextPage = () => {
           })}
         </div>
         <div>
-          <h1 className='font-poppins text-3xl'>9999 randomized text only NFTs. Society for Loot. <br /> Art for everyone. All on-chain.</h1>
+          <h1 className='font-poppins text-xl md:text-3xl'>9999 randomized text only NFTs. Society for Loot. <br /> Art for everyone. All on-chain.</h1>
         </div>
         <div className="w-8/12 md:w-1/2 flex justify-between items-center">
           <Twitter />
@@ -225,29 +225,29 @@ const Home: NextPage = () => {
       </main>
       
       <main className="flex w-full flex-1 flex-col items-start justify-center px-5 md:px-20 font-poppins space-y-5">
-        <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3">
+        <div className="w-full h-full bg-black/70 rounded-3xl p-10 md:p-20 space-y-3">
           <h1 className='text-3xl font-bold text-[#918378] mb-4'>ABOUT LOOT TRAVEL</h1>
-          <p>Like you, we love the story of the Lootverse. Adventure is the spirit of Lootverse, and what’s adventure without exploration! Exploration requires means of travel and this is exactly what Loot Travel brings to the Lootverse. 
+          <p className='text-justify'>Like you, we love the story of the Lootverse. Adventure is the spirit of Lootverse, and what’s adventure without exploration! Exploration requires means of travel and this is exactly what Loot Travel brings to the Lootverse. 
 
-Lootverse is a world where imagination flies wild and adventure rides high – and Loot Travel is no less! All the modes of travel a.k.a we have created are inspired by mythology, movies and folklore – opening endless possibilities for exploration and storytelling in the realms of the Lootverse. 
- 
-In line with the vision of the original Loot Project, Loot Travel is open to imagination, giving room for art and creativity to flow in – our main reason to make this NFT text-only is so you can visualize it the way you want and build on what we did. 
+          Lootverse is a world where imagination flies wild and adventure rides high – and Loot Travel is no less! All the modes of travel a.k.a we have created are inspired by mythology, movies and folklore – opening endless possibilities for exploration and storytelling in the realms of the Lootverse. 
+          
+          In line with the vision of the original Loot Project, Loot Travel is open to imagination, giving room for art and creativity to flow in – our main reason to make this NFT text-only is so you can visualize it the way you want and build on what we did. 
 
-Artists can Imagine, visualize, create and manifest the Loot Travel whichever way they want!
-</p>
+          Artists can Imagine, visualize, create and manifest the Loot Travel whichever way they want!
+          </p>
         </div>
-        <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
+        <div className="w-full h-full bg-white rounded-3xl p-10 md:p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
           <div className="w-full md:w-1/2">
             <h1 className='text-3xl font-bold text-[#517875] mb-4'>ELEMENTS</h1>
-            <p className='text-black'>Everything is possible in Loot Travel - From space to flight to terrestrial to water to underground movement. Each NFT consists of the following components:</p>
+            <p className='text-black text-justify'>Everything is possible in Loot Travel - From space to flight to terrestrial to water to underground movement. Each NFT consists of the following components:</p>
           </div>
           <img src="/nft.svg" alt="" className='w-72 p-5 border border-5 border-black rounded-xl' />
         </div>
-        <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
+        <div className="w-full h-full bg-black/70 rounded-3xl p-10 md:p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
           <div className="w-full md:w-1/2">
             <h1 className='text-3xl font-bold text-[#918378] mb-4'>COMPONENTS</h1>
-            <div className="w-full">
-              <Disclosure>
+            <div className="w-full  text-justify">
+              <Disclosure defaultOpen={true}>
                 {({ open }) => (
                   <>
                     <Disclosure.Button className="flex p-5 items-center justify-between w-full px-4 py-2 mb-2 text-sm font-medium text-left">
@@ -421,10 +421,10 @@ Artists can Imagine, visualize, create and manifest the Loot Travel whichever wa
           </div>
           <img src="/images/car2.png" alt="" className='w-72 p-5 border border-5 border-black rounded-xl' />
         </div>
-        <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
+        <div className="w-full h-full bg-white rounded-3xl p-10 md:p-20 space-y-3 flex flex-col md:flex-row justify-between items-center">
           <div className="w-full md:w-1/2 space-y-5">
             <h1 className='text-3xl font-bold text-[#517875]'>PRICING</h1>
-            <ul className='text-black list-disc px-10 space-y-3'>
+            <ul className='text-black list-disc px-10 space-y-3 text-justify'>
               <li>Each NFT will be 30 Matic.</li>
               <li>Minting is limited to 50 Loot Travel NFTs per wallet.</li>
               <li>By launching on Polygon (L2), gas will be mere pennies worth of MATIC.</li>
@@ -434,26 +434,22 @@ Artists can Imagine, visualize, create and manifest the Loot Travel whichever wa
           </div>
           <img src="/images/shopping.png" alt="" className='w-72 p-5 rounded-xl' />
         </div>
-        <div className="w-full h-full bg-black/70 rounded-3xl p-20 space-y-3">
-          <h1 className='text-3xl font-bold text-[#918378]'>ROADMAP</h1>
-          <p>Loot Travel aims to closely work with the Loot community at large to develop collaborations and integrations with other projects. Loot travel NFTs can be owned exclusively by Loot owners (of sLoot, mLoot, and other Loot community projects).</p>
-        </div>
-        <div className="w-full h-full bg-white rounded-3xl p-20 space-y-3">
-            <h1 className='text-3xl font-bold text-[#517875]'>FAQ's</h1>
-            <h1 className='font-bold text-black'>1. How can I buy the Loot Travel NFT?</h1>
-            <p className='text-black'>
+        <div className="w-full h-full bg-black/70 rounded-3xl p-10 md:p-20 space-y-3">
+            <h1 className='text-3xl font-bold text-[#918378]'>FAQ's</h1>
+            <h1 className='font-bold'>1. How can I buy the Loot Travel NFT?</h1>
+            <p className=' text-justify'>
               Once you connect to the Polygon Mainnet, purchase can be made with $MATIC.
             </p>
-            <h1 className='font-bold text-black'>2. I only have ETH in my wallet. How can I make the transaction?</h1>
-            <p className='text-black'>
+            <h1 className='font-bold  text-justify'>2. I only have ETH in my wallet. How can I make the transaction?</h1>
+            <p className=' text-justify overflow-wrap break-words'>
               We need to turn ETH to MATIC using Polygon bridge: https://wallet.polygon.technology/bridge/ 
             </p>
-            <h1 className='font-bold text-black'>3. Why did we build this on the Polygon chain?</h1>
-            <p className='text-black'>
+            <h1 className='font-bold  text-justify'>3. Why did we build this on the Polygon chain?</h1>
+            <p className=' text-justify'>
               Well, to avoid the insane Gas fees! Gas fee to buy the Loot Travel token is absolutely minimal (usually $0.01). 
             </p>
-            <h1 className='font-bold text-black'>4. What is the future of the Loot Travel NFT?</h1>
-            <p className='text-black'>
+            <h1 className='font-bold  text-justify'>4. What is the future of the Loot Travel NFT?</h1>
+            <p className=' text-justify'>
             Well, it’s super exciting for one. We see the Lootverse become a very exciting space for all of us and Loot travel would become an exciting part of this world once artists join the bandwagon to imagine, visualize and build the Loot vehicles! We look forward to the graphic versions that would be built on top of what we did!
             </p>
         </div>

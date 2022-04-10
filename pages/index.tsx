@@ -188,19 +188,19 @@ const Home: NextPage = () => {
             </div>
             {!address && 
               <button onClick={() => connectETH()} className='flex flex-col justify-center items-center text-center px-4 py-1 md:px-8 md:py-2 bg-black/40 rounded-full'>
-                <p className='text-xl md:text-2xl'>Connect</p>
+                <p className='text-lg md:text-2xl'>Connect</p>
               </button>
             }
             {address && 
               <button className='flex flex-col justify-center items-center text-center px-8 py-5 bg-gray-500 rounded-full border-2 border-white'>
-                <p className='w-20 truncate text-xl md:text-2xl'>{address}</p>
+                <p className='w-20 truncate text-lg md:text-2xl'>{address}</p>
               </button>
             }
           </div>
           <div className="w-11/12 md:w-1/2 h-full flex flex-col justify-center items-center space-y-10">
-            <h1 className='font-poppins font-bold text-3xl md:text-5xl'>Welcome to the future of Art</h1>
+            <h1 className='w-full font-poppins font-bold text-xl md:text-4xl'>The Art of movement. <br />Travel NFTs for the Lootverse.</h1>
             <div className='w-full flex flex-col justify-center items-center space-y-3'>
-              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter tokenId' className='w-full bg-black/20 p-2 md:p-5 placeholder rounded-full text-center text-3xl md:text-5xl text-white' required />
+              <input value={tokenId} onChange={(e) => setTokenId(Number(e.target.value))} type="number" name="tokenId" placeholder='Enter tokenId' className='w-full bg-black/20 p-2 md:p-5 placeholder rounded-full text-center text-white' required />
               <p className='text-center text-white font-poppins pb-5'>(A random number between 1-9999)</p>
               <button onClick={() => mint()} className='font-poppins text-lg md:text-xl px-10 py-2 bg-white hover:text-blue-900 duration-200 text-black rounded-full'>MINT</button>
             </div>
@@ -209,12 +209,12 @@ const Home: NextPage = () => {
           {Cards.map(card => {
             return <a href={card.link} className="w-full h-full flex justify-start items-center flex-col space-y-5">
               <img src={card.icon} className='w-fit h-fit' />
-              <h1 className='w-1/2 md:w-full text-xl text-center font-bold'>{card.text}</h1>
+              <h1 className='w-full text-lg md:text-xl text-center font-bold'>{card.text}</h1>
             </a>
           })}
         </div>
         <div>
-          <h1 className='font-poppins text-xl md:text-3xl'>9999 randomized text only NFTs. Society for Loot. <br /> Art for everyone. All on-chain.</h1>
+          <h1 className='font-poppins text-xl md:text-3xl'>9999 exclusive randomized text-only NFTs.</h1>
         </div>
         <div className="w-8/12 md:w-1/2 flex justify-between items-center">
           <Twitter />
@@ -263,7 +263,7 @@ const Home: NextPage = () => {
                       Vehicles
                       <div className='px-10'>
                         <br />
-                        <ol style={{ listStyleType: 'number' }}>
+                        <ul className='list-disc'>
                           <li>Millennium Falcon</li>
                           <li>Sling Ring</li>
                           <li>Nimbus 2000 Broomstick</li>
@@ -276,7 +276,7 @@ const Home: NextPage = () => {
                           <li>Cheetah</li>
                           <li>Elephant</li>
                           <li>Giant Ant</li>
-                        </ol>
+                        </ul>
                       </div>
                     </Disclosure.Panel>
                   </>
@@ -294,12 +294,12 @@ const Home: NextPage = () => {
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
-                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                      <ul className='px-10 list-disc'>
                         <li>Common</li>
                         <li>Epic</li>
                         <li>Legendary</li>
                         <li>Mythic</li>
-                      </ol>
+                      </ul>
                     </Disclosure.Panel>
                   </>
                 )}
@@ -316,14 +316,14 @@ const Home: NextPage = () => {
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
-                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                      <ul className='px-10 list-disc'>
                         <li>Blink of an eye</li>
                         <li>Super Fast</li>
                         <li>Fast</li>
                         <li>Medium</li>
                         <li>Slow</li>
                         <li>Slug</li>
-                      </ol>
+                      </ul>
                     </Disclosure.Panel>
                   </>
                 )}
@@ -340,7 +340,7 @@ const Home: NextPage = () => {
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
-                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                      <ul className='px-10 list-disc'>
                         <li>Spit-fire</li>
                         <li>Shape-shifting</li>
                         <li>Indestructible</li>
@@ -349,7 +349,7 @@ const Home: NextPage = () => {
                         <li>Disappearance</li>
                         <li>Self-Healing</li>
                         <li>Camouflage</li>
-                      </ol>
+                      </ul>
                     </Disclosure.Panel>
                   </>
                 )}
@@ -366,7 +366,7 @@ const Home: NextPage = () => {
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
-                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                      <ul className='px-10 list-disc'>
                         <li>Neodymium</li>
                         <li>Cerium</li>
                         <li>Scandium</li>
@@ -374,7 +374,7 @@ const Home: NextPage = () => {
                         <li>Holmium</li>
                         <li>Erbium</li>
                         <li>Lutetium</li>
-                      </ol>
+                      </ul>
                     </Disclosure.Panel>
                   </>
                 )}
@@ -391,7 +391,7 @@ const Home: NextPage = () => {
                       />
                     </Disclosure.Button>
                     <Disclosure.Panel className="text-left px-4 pt-4 pb-2 text-md text-white">
-                      <ol className='px-10' style={{ listStyleType: 'number' }}>
+                      <ul className='px-10 list-disc'>
                         <li>Gold</li>
                         <li>Silver</li>
                         <li>Fire</li>
@@ -412,7 +412,7 @@ const Home: NextPage = () => {
                         <li>Grass Green</li>
                         <li>Winter White</li>
                         <li>Earth Brown</li>
-                      </ol>
+                      </ul>
                     </Disclosure.Panel>
                   </>
                 )}

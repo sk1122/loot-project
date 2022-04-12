@@ -151,7 +151,7 @@ const Home: NextPage = () => {
       // Contract Code Starts
       try {
         const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
-        let tx1 = await contract.mint(tokenId, {value: ethers.utils.parseEther("0")});
+        let tx1 = await contract.mint(tokenId, {value: ethers.utils.parseEther("30")});
         await tx1.wait();
         toast.dismiss(toastId)
         toast.custom(<div className='bg-white text-gray-700 font-inter duration-300 p-3 rounded-xl'>

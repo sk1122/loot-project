@@ -77,7 +77,7 @@ const Home: NextPage = () => {
   const [signer, setSigner] = useState<any>()
   const [tokenId, setTokenId] = useState<number>()
 
-  const CONTRACT_ADDRESS = "0x84B358d1DCEdeC62750dBB05EA4Da2E6e9eDc18c";
+  const CONTRACT_ADDRESS = "0x25775361c3be2A004ff83E65265e82FE353f3C8b";
 
   const connectETH = async () => {
 		const providerOptions = {

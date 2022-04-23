@@ -151,7 +151,7 @@ const Home: NextPage = () => {
         await tx1.wait();
         toast.dismiss(toastId)
         toast.custom(<div className='bg-white text-gray-700 font-inter duration-300 p-3 rounded-xl'>
-          Successfully Minted NFT - <a className='text-blue-700 text-underline' href={`https://testnets.opensea.io/assets/mumbai/${CONTRACT_ADDRESS}/${tokenId.toString()}`}>Opensea Link</a>
+          Successfully Minted NFT - <a className='text-blue-700 text-underline' href={`https://opensea.io/assets/matic/${CONTRACT_ADDRESS}/${tokenId.toString()}`}>Opensea Link</a>
         </div>, {
           duration: 10000
         })
